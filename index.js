@@ -6,16 +6,20 @@ const inputStr =
 
 strRows = inputStr.split("\n");
 let result = [];
-// Refactoring old code using forEach method
+// Part 1 --- (Refactored old code using forEach() method)
+
 strRows.forEach((strRow) => {
-  cells = strRow.split(",");
-  result.push(cells);
+  cells = strRow.split(","); 
+  result.push(cells); // Part 2 --- Stored a row into an array to convert it into a 2D array.
 });
-console.log("--- PART 1 and  ---")
+console.log(" ")
+console.log("--- Part 2 ---")
 console.log(result)
-// ---- PART 2
-// Storing a row in to array to change it to 2d array
-let headers = result[0];
+
+
+// Part 3 -- Converted array items into objects and stored them in an array.
+
+let headers = result[0];// accessing 1st row(heading) in 2d array
 let objectsArray = [];
 for (let i = 1; i < result.length; i++) {
   let rowObject = {};
@@ -24,6 +28,9 @@ for (let i = 1; i < result.length; i++) {
   }
   objectsArray.push(rowObject);
 }
+console.log(" ")
+console.log("--- Part 3 ---")
+console.log(objectsArray) 
 
 
 // ---- PART 4 ----
@@ -64,22 +71,27 @@ finalResult.splice(1, 0, {
 }); // Inserted the object at index 1:
 
 finalResult.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" }) //Added the object to the end of the array
+console.log(" ")
+console.log("--- Part 4 ---")
+console.log(finalResult)
 
 
 // --- PART 5 ---
 
 let rows = []
- let keyList = Object.keys(finalResult[0])
+ let keyList = Object.keys(finalResult[0]) //Accessing keys using the Object.keys() method.
 let capitalizedRow = [];
  for (let i = 0; i < keyList.length; i++) {
  let capitalised = keyList[i].charAt(0).toUpperCase() + keyList[i].slice(1);
- capitalizedRow.push(capitalised)
+ capitalizedRow.push(capitalised) // Capitilization
 }
 rows.push(capitalizedRow.join())
-// rows.push(capitalization)
+
 for(i=0;i<finalResult.length;i++){
-  let valueRow = Object.values(finalResult[i])
+  let valueRow = Object.values(finalResult[i]) //Accessing values using the Object.values() method.
   rows.push(valueRow.join())
    
 }
-console.log(rows.join("\\n"))
+console.log(" ")
+console.log("--- PART 5 ---")
+console.log(rows.join("\\n")) // used join method to join keys and all values and changed array back to CSV format
