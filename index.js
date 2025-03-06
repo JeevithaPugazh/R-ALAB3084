@@ -7,7 +7,7 @@ let strRows = inputStr.split("\n");
 
 
 let result =[];
-// Part 1 --- (Refactored old code using forEach() method)
+// Part 1 --- (Refactored old code using for of() method)
 for (const element of strRows) {
   cells = element.split(","); // variable that storing all columns
   result.push(cells); // Part 2 --- Stored a row into an array to convert it into a 2D array.
